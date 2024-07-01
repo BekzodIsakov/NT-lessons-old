@@ -1,19 +1,15 @@
-import ItemList from './ItemList';
+import ItemList from "./ItemList";
 
-const Content = ({ items, handleCheck, handleDelete }) => {
-    return (
-        <>
-            {items.length ? (
-                <ItemList
-                    items={items}
-                    handleCheck={handleCheck}
-                    handleDelete={handleDelete}
-                />
-            ) : (
-                <p style={{ marginTop: '2rem' }}>Your list is empty.</p>
-            )}
-        </>
-    )
-}
+const Content = ({ items }) => {
+  return (
+    <>
+      {items.length ? (
+        <ItemList items={items} />
+      ) : (
+        <p style={{ marginTop: "2rem" }}>Your list is empty.</p>
+      )}
+    </>
+  );
+};
 
-export default Content
+export default Content;
