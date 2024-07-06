@@ -1,6 +1,6 @@
 import { useParams, Link, useNavigate } from "react-router-dom";
 
-const PostPage = ({ posts, handleDelete }) => {
+const PostPage = ({ posts, handleDelete, deleting }) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -14,7 +14,9 @@ const PostPage = ({ posts, handleDelete }) => {
             <h2>{post.title}</h2>
             <p className='postDate'>{post.datetime}</p>
             <p className='postBody'>{post.body}</p>
-            <button onClick={() => handleDelete(post.id)}>Delete Post</button>
+            <button onClick={() => handleDelete(post.id)} disabled={deleting}>
+              {deleting ? "In progress..." : "Delete Post"}
+            </button>
             <button
               style={{ marginLeft: "0.8em", backgroundColor: "#bebebe" }}
               onClick={() => navigate(-1)}

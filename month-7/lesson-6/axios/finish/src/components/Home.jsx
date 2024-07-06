@@ -1,17 +1,18 @@
-import Feed from './Feed';
+import Feed from "./Feed";
 
-const Home = ({ posts }) => {
-    return (
-        <main className="Home">
-            {posts.length ? (
-                <Feed posts={posts} />
-            ) : (
-                <p style={{ marginTop: "2rem" }}>
-                    No posts to display.
-                </p>
-            )}
-        </main>
-    )
-}
+const Home = ({ posts, loading }) => {
+    
+  return (
+    <main className='Home'>
+      {loading ? (
+        <p>Loading...</p>
+      ) : posts.length ? (
+        <Feed posts={posts} />
+      ) : (
+        <p style={{ marginTop: "2rem" }}>No posts to display.</p>
+      )}
+    </main>
+  );
+};
 
-export default Home
+export default Home;
