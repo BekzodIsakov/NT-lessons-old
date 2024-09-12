@@ -1,6 +1,0 @@
-{
-  "/_not-found/page": "app/_not-found/page.js",
-  "/about/page": "app/about/page.js",
-  "/about/@student/students/page": "app/about/@student/students/page.js",
-  "/about/@student/students/[studentId]/page": "app/about/@student/students/[studentId]/page.js"
-}
