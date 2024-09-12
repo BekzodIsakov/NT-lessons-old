@@ -4,12 +4,13 @@ import {
   TOGGLE_TODO,
   UPDATE_TODO,
   useTodo,
-} from "../store/context";
+  ToDo
+} from "../store/context.tsx";
 import Button from "./Button";
 import Input from "./Input";
 import { Edit, Trash2, Check, X } from "lucide-react";
 
-const TodoItem = ({ todo }) => {
+const TodoItem = ({ todo }: {todo: ToDo}) => {
   const { dispatch } = useTodo();
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState(todo.text);

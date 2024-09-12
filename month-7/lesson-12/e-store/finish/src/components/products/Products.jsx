@@ -41,7 +41,7 @@ const Products = () => {
 
       let query = `${baseURL}/products`;
 
-      "https://headphones-server.onrender.com/products?color_options_like=#ff0000"
+      // "https://headphones-server.onrender.com/products?color_options_like=#ff0000"
 
       const params = [];
       if (selectedColor) {

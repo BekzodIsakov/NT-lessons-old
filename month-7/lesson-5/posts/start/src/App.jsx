@@ -44,13 +44,7 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const filteredResults = posts.filter(
-      (post) =>
-        post.body.toLowerCase().includes(search.toLowerCase()) ||
-        post.title.toLowerCase().includes(search.toLowerCase())
-    );
-
-    setSearchResults(filteredResults.reverse());
+    
   }, [posts, search]);
 
   const handleSubmit = (e) => {
@@ -58,23 +52,16 @@ function App() {
     const id = posts.length ? posts[posts.length - 1].id + 1 : 1;
     const datetime = format(new Date(), "MMMM dd, yyyy pp");
     const newPost = { id, title: postTitle, datetime, body: postBody };
-    const allPosts = [...posts, newPost];
-    setPosts(allPosts);
-    setPostTitle("");
-    setPostBody("");
-    navigate("/");
   };
 
   const handleDelete = (id) => {
-    const postsList = posts.filter((post) => post.id !== id);
-    setPosts(postsList);
-    navigate("/");
+    
   };
 
   return (
     <div className='App'>
       <Header title='React JS Blog' />
-      <Nav search={search} setSearch={setSearch} />
+      <Nav />
       <Routes>
         <Route path='/' element={<Home posts={searchResults} />} />
         <Route
@@ -91,7 +78,7 @@ function App() {
         />
         <Route
           path='/post/:id'
-          element={<PostPage posts={posts} handleDelete={handleDelete} />}
+          element={<PostPage posts={posts} />}
         />
         <Route path='/about' component={<About />} />
         <Route path='*' component={<Missing />} />
